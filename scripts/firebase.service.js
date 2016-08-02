@@ -6,7 +6,7 @@ var firebaseService = (function() {
             databaseURL: "https://febe-84cc9.firebaseio.com"
         };
         this.uiConfig = {
-            'signInSuccessUrl': (document.location.hostname === "localhost") ? '/' : 'kyleuhan.com/dev51',
+            'signInSuccessUrl': (document.location.hostname === "localhost") ? '/' : '/dev51',
             'signInOptions': [
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID
             ]
