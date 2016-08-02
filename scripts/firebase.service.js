@@ -1,23 +1,22 @@
 var firebaseService = (function() {
-    function firebaseService(config) {
-        config = config || {};
-        this.config = config.hook || {
+    function firebaseService() {
+        this.config = {
             apiKey: "AIzaSyC03DhOY_MFozanY9Ajd438hJC-AazSRd0",
             authDomain: "febe-84cc9.firebaseapp.com",
-            databaseURL: "https://febe-84cc9.firebaseio.com",
+            databaseURL: "https://febe-84cc9.firebaseio.com"
         }
-        this.uiConfig = config.uiConfig || {
+        this.uiConfig = {
             'signInSuccessUrl': (document.location.hostname === "localhost") ? '/' : 'kyleuhan.com/dev51',
             'signInOptions': [
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID
             ]
         };
-        this.firebaseApp = firebase.initializeApp(config);
+        this.firebaseApp = firebase.initializeApp(this.config);
         this.db = this.firebaseApp.database();
         this.auth = this.firebaseApp.auth();
-        this.ui = new firebaseui.auth.AuthUI(auth);
+        this.ui = new firebaseui.auth.AuthUI(this.auth);
         if (!this.auth.currentUser) {
-            this.ui.start('#firebaseLoginUi', uiConfig);
+            this.ui.start('#firebaseLoginUi', this.uiConfig);
         }
     };
     var p = firebaseService.prototype;

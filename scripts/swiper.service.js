@@ -27,7 +27,7 @@ var swiperService = (function() {
         return this.slider.activeIndex;
     }
     p.slideTo = function(index) {
-        this.swiper.slideTo(1);
+        this.slider.slideTo(index);
     }
     return slider;
 })();

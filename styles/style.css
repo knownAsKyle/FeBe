@@ -25,6 +25,7 @@
     width: 90%;
     max-width: 800px;
     height: 100%;
+    padding: 103px 0 0 0;
     background: rgba(255, 255, 255, .1);
 }
 
@@ -32,6 +33,37 @@
     height: initial;
 }
 
+/*user*/
+#header{
+    position: fixed;
+    width: 60%;
+    text-align: center;
+    margin: 0 20%;
+    z-index: 999999999 !important;
+}
+#userName{
+    float: right;
+    position: relative;
+    top: 30px;
+    font-size: 20px;
+}
+#landingPageImageSmall{
+    position: relative;
+    float: left;
+    top: 4px;
+    width: 75px;
+    height: 75px;
+    border: 3px solid black;
+    border-radius: 50%;
+    display: inline-block;
+    background-image: url('../assets/logo.png');
+    background-size: cover;
+    background-position: center;
+    background-color: #00bfff;
+    box-shadow: 0px 0px 20px;
+    transition: all .3s;
+    opacity: 0;
+}
 
 /*LANDING PAGE*/
 
@@ -41,8 +73,7 @@
     text-align: center;
 }
 
-#landingPageImage,
-#landingPageImageSmall {
+#landingPageImage {
     position: relative;
     width: 200px;
     height: 200px;
@@ -69,10 +100,7 @@
 }
 
 #landingPageImageSmall {
-    width: 75px;
-    height: 75px;
-    top: 4px;
-    opacity: 0;
+    
 }
 
 #myCurrentLocationInput {

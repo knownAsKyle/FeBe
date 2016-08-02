@@ -9,7 +9,7 @@ function stopProp(e) {
     //DOM
     var landingPageImageSmall = document.getElementById("landingPageImageSmall");
     var landingPageImage = document.getElementById("landingPageImage");
-    var userName = document.getElementById("userName");
+    var userName = $("#userName");
     /*************************************
     **************************************
         SWIPER STUFF
@@ -39,19 +39,20 @@ function stopProp(e) {
     **************************************/
     //FIREBASE AUTH
     var fb = new firebaseService();
-    fb.onAuth(handleAuthChange);
-
-    function handleAuthChange(user) {
-        if (auth.currentUser) {
-            console.log(user.uid, " = ", user.email, auth.currentUser);
-            // mySwiper.unlockSwipes();
-            userName.innerHTML = user.email;
-            // mySwiper.slideTo(1);
-            // console.dir(userName)
+    fb.onAuth(function handleAuthChange(user) {
+        console.log("user", user)
+        if (fb.auth.currentUser) {
+            swiper.unlock();
+            swiper.slideTo(1);
+            userName.text(user.email);
+            console.log(userName)
         } else {
+            swiper.slideTo(0);
+            swiper.lock();
+            userName.text(" ");
             console.log("not logged in");
         }
-    }
+    });
     /*************************************
     **************************************
         GOOGLE AUTO COMPLETE STUFF
@@ -78,6 +79,15 @@ function stopProp(e) {
         var currentLocation = autocompleteLocation.getPlace();
         // localStorage.setItem("FeBe_UserProfile", currentLocation.formatted_address);
         console.log(currentLocation);
+    }
+    /**********************************
+            OTHER
+    **********************************/
+    userName.on("click", handleUserNameClick);
+
+    function handleUserNameClick() {
+        console.log(fb.auth.s)
+        fb.auth.signOut();
     }
 })();
 // setTimeout(function() {
