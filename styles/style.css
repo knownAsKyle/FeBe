@@ -99,10 +99,8 @@
     transition: all .3s;
 }
 
-#landingPageImageSmall {
-    
-}
 
+/*PROFILE*/
 #myCurrentLocationInput {
     position: relative;
     width: 70%;
@@ -115,6 +113,28 @@
     font-size: 20px;
 }
 
+/*MAP*/
+#mapWrapper{
+   text-align: center;
+   position: relative;
+}
+
+#map{
+    position: relative;
+    display: inline-block;
+    height: 300px;
+    width: 300px;
+}
+/*CATEGORIES*/
+#categoryWrapper{
+    width: 100%;
+}
+#categoryWrapper .category{
+    font-size: 30px;
+    padding: 10px 0;
+    background: rgba(255,255,255,1);
+    margin: 10px 0;
+}
 @media screen and (max-width:600px) {
     #landingPageTitleWrapper {
         font-size: 20px;
